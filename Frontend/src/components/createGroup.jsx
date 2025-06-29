@@ -13,6 +13,7 @@ const CreateGroup = () => {
   const [createdGroup, setCreatedGroup] = useState();
   const [users, setUsers] = useState([]);
   const [currUser, setCurrUser] = useState([]);
+  const [loadingUsers, setLoadingUsers] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -57,21 +58,35 @@ const CreateGroup = () => {
     }
   }, [createdGroup, navigate]);
 
-  useEffect(() => {
-    async function temp() {
-      const userResponse = await axios.get(`${import.meta.env.VITE_API_URL}/api/users?sort=name`, {
+useEffect(() => {
+  if (!currUser.id) return; // ⛔ skip if currUser not ready
+
+  const fetchUsers = async () => {
+    try {
+      setLoadingUsers(true);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/users?sort=name`, {
         withCredentials: true,
       });
-      userResponse.data.data.users.map((el) => {
-        el.avatar = '👤';
-      });
-      const userList = userResponse.data.data.users.filter((el) => {
-        if (el._id !== currUser.id) return el;
-      });
-      setUsers(userList);
+
+      const allUsers = response.data.data.users.map((el) => ({
+        ...el,
+        avatar: "👤",
+      }));
+
+      const filteredUsers = allUsers.filter((el) => el._id !== currUser._id);
+
+      setUsers(filteredUsers);
+    } catch (err) {
+      console.error("Error fetching users:", err);
+    }finally {
+      setLoadingUsers(false); // ✅ stop loading after success/failure
     }
-    temp();
-  }, [currUser]);
+  };
+
+  fetchUsers();
+}, [currUser]); // ✅ only run this when currUser is set
+
+
   //   const users = [
   //     { id: 1, name: "John Doe", status: "online", avatar: "👤" },
   //     { id: 2, name: "Jane Smith", status: "online", avatar: "👩" },
@@ -142,7 +157,7 @@ const CreateGroup = () => {
                 Select Members ({selectedUsers.length} selected)
               </label>
               <div className="space-y-2 max-h-64 overflow-y-auto">
-                {users.map((user) => (
+                {loadingUsers?(<div>Loading users</div>):(users.map((user) => (
                   <div
                     key={user._id}
                     className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer"
@@ -168,7 +183,7 @@ const CreateGroup = () => {
                       <Check className="h-4 w-4 text-green-600" />
                     )}
                   </div>
-                ))}
+                )))}
               </div>
             </div>
 
