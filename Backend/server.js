@@ -23,9 +23,20 @@ mongoose
 
 const server = createServer(app);
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://chat-application-frontend-117v.onrender.com"
+];
+
 const io = new Server(server, {
   cors: {
-    origin: `${process.env.FRONTEND_URL}`,
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST"],
     credentials: true,
   },
