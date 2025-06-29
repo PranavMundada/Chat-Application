@@ -15,10 +15,20 @@ import messageRouter from "./routes/messageRoutes.js";
 
 const app = express();
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://chat-application-frontend-117v.onrender.com"
+];
+
 app.use(
   cors({
-    origin: `${process.env.FRONTEND_URL}`
-, // must be explicit, NOT '*'
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true, // allow cookies to be sent
   })
 );
