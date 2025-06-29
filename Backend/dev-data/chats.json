@@ -1,0 +1,98 @@
+[
+  {
+    "chatId": 1,
+    "name": "Pranav & Lourdes",
+    "isGroupChat": false,
+    "users": ["5c8a1d5b0190b214360dc057", "5c8a1dfa2f8fb814b56fa181"]
+  },
+  {
+    "chatId": 2,
+    "name": "Sophie & Ayla",
+    "isGroupChat": false,
+    "users": ["5c8a1e1a2f8fb814b56fa182", "5c8a1ec62f8fb814b56fa183"]
+  },
+  {
+    "chatId": 3,
+    "name": "Leo & Jennifer",
+    "isGroupChat": false,
+    "users": ["5c8a1f292f8fb814b56fa184", "5c8a1f4e2f8fb814b56fa185"]
+  },
+  {
+    "chatId": 4,
+    "name": "Eliana & Cristian",
+    "isGroupChat": false,
+    "users": ["5c8a20d32f8fb814b56fa187", "5c8a211f2f8fb814b56fa188"]
+  },
+  {
+    "chatId": 5,
+    "name": "Max & Isabel",
+    "isGroupChat": false,
+    "users": ["5c8a23de2f8fb814b56fa18e", "5c8a24282f8fb814b56fa18f"]
+  },
+  {
+    "chatId": 6,
+    "name": "Frontend Team",
+    "isGroupChat": true,
+    "users": [
+      "5c8a1d5b0190b214360dc057",
+      "5c8a1e1a2f8fb814b56fa182",
+      "5c8a1ec62f8fb814b56fa183"
+    ],
+    "admin": "5c8a1d5b0190b214360dc057"
+  },
+  {
+    "chatId": 7,
+    "name": "Guides Group",
+    "isGroupChat": true,
+    "users": [
+      "5c8a1f292f8fb814b56fa184",
+      "5c8a1f4e2f8fb814b56fa185",
+      "5c8a22c62f8fb814b56fa18b",
+      "5c8a23412f8fb814b56fa18c"
+    ],
+    "admin": "5c8a23412f8fb814b56fa18c"
+  },
+  {
+    "chatId": 8,
+    "name": "IIIT Pune Squad",
+    "isGroupChat": true,
+    "users": [
+      "5c8a1d5b0190b214360dc057",
+      "5c8a21d02f8fb814b56fa189",
+      "5c8a21f22f8fb814b56fa18a",
+      "5c8a23c82f8fb814b56fa18d"
+    ],
+    "admin": "5c8a21d02f8fb814b56fa189"
+  },
+  {
+    "chatId": 9,
+    "name": "Marketing",
+    "isGroupChat": true,
+    "users": [
+      "5c8a24402f8fb814b56fa190",
+      "5c8a245f2f8fb814b56fa191",
+      "5c8a24822f8fb814b56fa192",
+      "5c8a24a02f8fb814b56fa193"
+    ],
+    "admin": "5c8a24402f8fb814b56fa190"
+  },
+  {
+    "chatId": 10,
+    "name": "Hackathon Team",
+    "isGroupChat": true,
+    "users": [
+      "5c8a1dfa2f8fb814b56fa181",
+      "5c8a1e1a2f8fb814b56fa182",
+      "5c8a21f22f8fb814b56fa18a",
+      "5c8a24282f8fb814b56fa18f",
+      "5c8a24a02f8fb814b56fa193"
+    ],
+    "admin": "5c8a21f22f8fb814b56fa18a"
+  },
+  {
+    "chatId": 11,
+    "name": "Pranav & Lourdes",
+    "isGroupChat": false,
+    "users": ["5c8a1d5b0190b214360dc057", "5c8a1dfa2f8fb814b56fa181"]
+  }
+]

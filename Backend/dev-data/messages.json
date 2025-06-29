@@ -1,0 +1,189 @@
+[
+  {
+    "sender": "5c8a1d5b0190b214360dc057",
+    "chat": "chat1",
+    "content": "Hey Lourdes, how are you?",
+    "createdAt": "2025-06-25T09:00:00Z"
+  },
+  {
+    "sender": "5c8a1dfa2f8fb814b56fa181",
+    "chat": "chat1",
+    "content": "Hi Pranav! I'm good, you?",
+    "createdAt": "2025-06-25T09:01:00Z"
+  },
+  {
+    "sender": "5c8a1e1a2f8fb814b56fa182",
+    "chat": "chat2",
+    "content": "Ayla, did you check the notes?",
+    "createdAt": "2025-06-25T09:02:00Z"
+  },
+  {
+    "sender": "5c8a1ec62f8fb814b56fa183",
+    "chat": "chat2",
+    "content": "Yes Sophie, I updated them!",
+    "createdAt": "2025-06-25T09:03:00Z"
+  },
+  {
+    "sender": "5c8a1f292f8fb814b56fa184",
+    "chat": "chat3",
+    "content": "Jennifer, ready for the tour?",
+    "createdAt": "2025-06-25T09:04:00Z"
+  },
+  {
+    "sender": "5c8a1f4e2f8fb814b56fa185",
+    "chat": "chat3",
+    "content": "Absolutely Leo, let's go!",
+    "createdAt": "2025-06-25T09:05:00Z"
+  },
+
+  {
+    "sender": "5c8a20d32f8fb814b56fa187",
+    "chat": "chat4",
+    "content": "Cristian, want to pair on this task?",
+    "createdAt": "2025-06-25T09:06:00Z"
+  },
+  {
+    "sender": "5c8a211f2f8fb814b56fa188",
+    "chat": "chat4",
+    "content": "Sure Eliana, send me the details.",
+    "createdAt": "2025-06-25T09:07:00Z"
+  },
+
+  {
+    "sender": "5c8a23de2f8fb814b56fa18e",
+    "chat": "chat5",
+    "content": "Isabel, got the update?",
+    "createdAt": "2025-06-25T09:08:00Z"
+  },
+  {
+    "sender": "5c8a24282f8fb814b56fa18f",
+    "chat": "chat5",
+    "content": "Yes Max, just reviewed it.",
+    "createdAt": "2025-06-25T09:09:00Z"
+  },
+
+  {
+    "sender": "5c8a1d5b0190b214360dc057",
+    "chat": "chat6",
+    "content": "Hey team, let's finalize the UI.",
+    "createdAt": "2025-06-25T09:10:00Z"
+  },
+  {
+    "sender": "5c8a1e1a2f8fb814b56fa182",
+    "chat": "chat6",
+    "content": "Working on the homepage now.",
+    "createdAt": "2025-06-25T09:11:00Z"
+  },
+  {
+    "sender": "5c8a1ec62f8fb814b56fa183",
+    "chat": "chat6",
+    "content": "I'll check responsiveness.",
+    "createdAt": "2025-06-25T09:12:00Z"
+  },
+
+  {
+    "sender": "5c8a1f292f8fb814b56fa184",
+    "chat": "chat7",
+    "content": "Tour at 10AM, be ready.",
+    "createdAt": "2025-06-25T09:13:00Z"
+  },
+  {
+    "sender": "5c8a1f4e2f8fb814b56fa185",
+    "chat": "chat7",
+    "content": "Got it, thanks Leo.",
+    "createdAt": "2025-06-25T09:14:00Z"
+  },
+  {
+    "sender": "5c8a22c62f8fb814b56fa18b",
+    "chat": "chat7",
+    "content": "Bringing the maps.",
+    "createdAt": "2025-06-25T09:15:00Z"
+  },
+  {
+    "sender": "5c8a23412f8fb814b56fa18c",
+    "chat": "chat7",
+    "content": "I'll bring the checklist.",
+    "createdAt": "2025-06-25T09:16:00Z"
+  },
+
+  {
+    "sender": "5c8a1d5b0190b214360dc057",
+    "chat": "chat8",
+    "content": "Who's pushing code today?",
+    "createdAt": "2025-06-25T09:17:00Z"
+  },
+  {
+    "sender": "5c8a21d02f8fb814b56fa189",
+    "chat": "chat8",
+    "content": "I'll handle deployment.",
+    "createdAt": "2025-06-25T09:18:00Z"
+  },
+  {
+    "sender": "5c8a21f22f8fb814b56fa18a",
+    "chat": "chat8",
+    "content": "Docs are updated now.",
+    "createdAt": "2025-06-25T09:19:00Z"
+  },
+  {
+    "sender": "5c8a23c82f8fb814b56fa18d",
+    "chat": "chat8",
+    "content": "Reviewing PRs now.",
+    "createdAt": "2025-06-25T09:20:00Z"
+  },
+
+  {
+    "sender": "5c8a24402f8fb814b56fa190",
+    "chat": "chat9",
+    "content": "Let's meet at 11AM.",
+    "createdAt": "2025-06-25T09:21:00Z"
+  },
+  {
+    "sender": "5c8a245f2f8fb814b56fa191",
+    "chat": "chat9",
+    "content": "Agenda is ready.",
+    "createdAt": "2025-06-25T09:22:00Z"
+  },
+  {
+    "sender": "5c8a24822f8fb814b56fa192",
+    "chat": "chat9",
+    "content": "Adding slides to the deck.",
+    "createdAt": "2025-06-25T09:23:00Z"
+  },
+  {
+    "sender": "5c8a24a02f8fb814b56fa193",
+    "chat": "chat9",
+    "content": "I'll take notes.",
+    "createdAt": "2025-06-25T09:24:00Z"
+  },
+
+  {
+    "sender": "5c8a1dfa2f8fb814b56fa181",
+    "chat": "chat10",
+    "content": "Let's register our team!",
+    "createdAt": "2025-06-25T09:25:00Z"
+  },
+  {
+    "sender": "5c8a1e1a2f8fb814b56fa182",
+    "chat": "chat10",
+    "content": "What’s our team name?",
+    "createdAt": "2025-06-25T09:26:00Z"
+  },
+  {
+    "sender": "5c8a21f22f8fb814b56fa18a",
+    "chat": "chat10",
+    "content": "Suggesting 'ByteBrigade'",
+    "createdAt": "2025-06-25T09:27:00Z"
+  },
+  {
+    "sender": "5c8a24282f8fb814b56fa18f",
+    "chat": "chat10",
+    "content": "Cool! Logo coming soon.",
+    "createdAt": "2025-06-25T09:28:00Z"
+  },
+  {
+    "sender": "5c8a24a02f8fb814b56fa193",
+    "chat": "chat10",
+    "content": "I'll handle the pitch deck.",
+    "createdAt": "2025-06-25T09:29:00Z"
+  }
+]
