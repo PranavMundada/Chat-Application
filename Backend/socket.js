@@ -9,7 +9,7 @@ export function socketio(io) {
     socket.on("room message", async (room, msg, userId) => {
       try {
         const msgResponse = await axios.post(
-          `${VITE_API_URL}/api/messages`,
+          `${process.env.VITE_API_URL}/api/messages`,
           {
             sender: userId,
             chatGroup: room,
