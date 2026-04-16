@@ -16,6 +16,8 @@ import messageRouter from "./routes/messageRoutes.js";
 const app = express();
 
 const allowedOrigins = [
+  "http://localhost:3000",
+  "http://localhost:3001",
   "http://localhost:5173",
   "https://chat-application-frontend-117v.onrender.com",
   process.env.FRONTEND_URL
@@ -24,7 +26,13 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
+      // Allow specific pre-configured origins, or ANY local dev origin across ANY port.
+      if (
+        !origin || 
+        allowedOrigins.includes(origin) || 
+        (origin && origin.startsWith("http://localhost:")) ||
+        (origin && origin.startsWith("http://127.0.0.1:"))
+      ) {
         callback(null, true);
       } else {
         callback(new Error("Not allowed by CORS"));
@@ -44,33 +52,7 @@ app.get("/", (req, res) => {
 app.use("/api/users", userRouter);
 app.use("/api/chats", chatRouter);
 app.use("/api/messages", messageRouter);
-app.get("/api/auth/verify", (req, res) => {
-  const token = req.cookies.jwt;
-  if (!token) {
-    return res.status(401).json({ message: "Not authenticated" });
-  }
 
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    return res.status(200).json({ user: decoded });
-  } catch (err) {
-    return res.status(401).json({ message: err.message });
-  }
-});
-
-app.get("/api/auth/me", (req, res) => {
-  const token = req.cookies.jwt;
-  if (!token) {
-    return res.status(401).json({ message: "Not authenticated" });
-  }
-
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    return res.status(200).json({ user: decoded });
-  } catch (err) {
-    return res.status(401).json({ message: err.message });
-  }
-});
 
 app.all("/{*any}", (req, res, next) => {
   next(new AppError(`cannot find ${req.originalUrl} on this server`, 404));

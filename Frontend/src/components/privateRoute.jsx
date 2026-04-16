@@ -1,26 +1,12 @@
 // components/PrivateRoute.jsx
-import { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import axios from 'axios';
+import { useAuth } from '../context/AuthContext.jsx';
 
 const PrivateRoute = ({ children }) => {
-  const [authenticated, setAuthenticated] = useState(null);
+  const { user, loading } = useAuth();
 
-  useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_API_URL}/api/auth/verify`, {
-        withCredentials: true,
-      })
-      .then((res) => {
-        setAuthenticated(true);
-      })
-      .catch(() => {
-        setAuthenticated(false);
-      });
-  }, []);
-
-  if (authenticated === null) return <div>Loading...</div>;
-  return authenticated ? children : <Navigate to="/login" />;
+  if (loading) return <div>Loading...</div>;
+  return user ? children : <Navigate to="/login" />;
 };
 
 export default PrivateRoute;

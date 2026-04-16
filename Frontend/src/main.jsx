@@ -7,9 +7,12 @@ import Intro from './intro.jsx';
 import Login from './components/login.jsx';
 import Signup from './components/signup.jsx';
 import ChatRoom from './components/chatroom.jsx';
-import { CookiesProvider } from 'react-cookie';
+import axios from 'axios';
+
+axios.defaults.withCredentials = true;
 import PrivateRoute from './components/privateRoute.jsx';
 import CreateGroup from './components/createGroup.jsx';
+import GoogleCallback from './components/GoogleCallback.jsx';
 
 const router = createBrowserRouter([
   {
@@ -40,12 +43,18 @@ const router = createBrowserRouter([
     path: '/createChatGroup',
     element: <CreateGroup />,
   },
+  {
+    path: '/auth/callback',
+    element: <GoogleCallback />,
+  },
 ]);
+
+import { AuthProvider } from './context/AuthContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <CookiesProvider>
+    <AuthProvider>
       <RouterProvider router={router} />
-    </CookiesProvider>
+    </AuthProvider>
   </StrictMode>
 );

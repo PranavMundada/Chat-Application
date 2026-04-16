@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Send, MessageCircle, Users } from 'lucide-react';
+import { Send, MessageCircle, Users, LogOut } from 'lucide-react';
 import { Button } from './button';
 import { Input } from './c_input';
 import { Card, CardContent, CardHeader, CardTitle } from './card';
@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import io from 'socket.io-client';
 import Messages from './Messages';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext.jsx';
 
 const socket = io(`${import.meta.env.VITE_API_URL}`);
 
@@ -20,7 +21,22 @@ const ChatRoom = () => {
   const [messages, setMessages] = useState([]);
   const [room, setRoom] = useState('general');
   const navigate = useNavigate();
+
+  const { user, checkAuth } = useAuth();
+  
+  const handleLogout = async () => {
+    try {
+      await axios.get(`${import.meta.env.VITE_API_URL}/api/users/logout`, { withCredentials: true });
+      sessionStorage.removeItem('userId');
+      await checkAuth(); // this will set user to null based on backend
+      navigate('/login');
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
+  };
   // const messageRef = useRef();
+
+
 
   useEffect(() => {
     socket.on('room message', (room, msg, userId) => {
@@ -45,12 +61,10 @@ const ChatRoom = () => {
   useEffect(() => {
     const tempf = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/me`, {
-          withCredentials: true,
-        });
-        sessionStorage.setItem('userId', response.data.user.id);
+        if (!user) return;
+        sessionStorage.setItem('userId', user._id || user.id);
         const currentUser = await axios.get(
-          `${import.meta.env.VITE_API_URL}/api/users/${response.data.user.id}`,
+          `${import.meta.env.VITE_API_URL}/api/users/${user._id || user.id}`,
           { withCredentials: true }
         );
         const chatGroups = currentUser.data.data.user.chatGroups;
@@ -94,9 +108,14 @@ const ChatRoom = () => {
       {/* Sidebar */}
       <div className="w-80 bg-white border-r border-gray-200 flex flex-col h-screen">
         <div className="p-4 border-b border-gray-200">
-          <div className="flex items-center space-x-2 mb-4">
-            <MessageCircle className="h-6 w-6 text-blue-600" />
-            <h1 className="text-xl font-bold text-gray-800">ChatApp</h1>
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center space-x-2">
+              <MessageCircle className="h-6 w-6 text-blue-600" />
+              <h1 className="text-xl font-bold text-gray-800">ChatApp</h1>
+            </div>
+            <button onClick={handleLogout} className="text-gray-500 hover:text-red-500 transition-colors" title="Logout">
+              <LogOut className="h-5 w-5" />
+            </button>
           </div>
           <div className="flex items-center space-x-2 text-sm text-gray-600"></div>
         </div>
